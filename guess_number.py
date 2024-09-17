@@ -1,16 +1,24 @@
-class Bank:
-    def __init__(self, name, date):
-        self.name = name
-        self.date = date
-        self.str = date + name
-        self.jopa = 1
-    def __str__(self):
-        return self.name + self.date
+# Импорт функции получения случайных чисел
+# из модуля random.
+from random import randint
 
+# Получаем случайное число в диапазоне от 1 до 100.
+number = randint(1, 100)
+print('Угадайте число от 1 до 100')
 
-sber = Bank("Sberbank", "1841")
-x = str(sber)
-print(x)
+while True:
+    # Получаем число от пользователя и сохраняем его в переменную.
+    guess = int(input('Введите число: '))
 
-x = sber.__dict__
-print(len(x))
+    # Если число меньше загаданного...
+    if guess < number:
+        # ...выводим сообщение.
+        print('Ваше число меньше того, что загадано.')
+    elif guess > number:
+        # ...выводим сообщение.
+        print('Ваше число больше того, что загадано.')
+    elif guess == number:
+        # ...прерываем выполнение программы и...
+        break
+# ...выводим сообщение.
+print('Отличная интуиция! Вы угадали число :)')
